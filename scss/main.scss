@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@import "./variables";
+@import "./utilities";
+@import "./typescale";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin padding-right {
+  padding-right: 12px;
+}
+
+@mixin padding-left {
+  padding-left: 12px;
+}
+
+body {
+  // font-family: "Inter", sans-serif;
+  // font-family: "Cirka Bold";
+  font-family: "NeueHaasDisplay";
+  background-image: url("../assets/back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  // width: 100vw;
+
+  .main_wrapper {
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 120px;
+
+    .info_container {
+      align-items: center;
+      .profile_image {
+        display: flex;
+        width: 100%;
+        img {
+          border-radius: 100px;
+        }
+      }
+
+      .profile_info {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        .name {
+          color: $gray-800;
+          font-size: 20px;
+        }
+        .location {
+          color: $gray-400;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .hero_container {
+      border-bottom: 1px solid #e2e2e2;
+      padding-bottom: 16px;
+      margin-top: 8px;
+      .tagline_container {
+        width: 510px;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 43px;
+        font-family: "Cirka Bold";
+        span {
+          background: linear-gradient(
+            -45deg,
+            #ee7752,
+            #e73c7e,
+            #23a6d5,
+            #23d5ab
+          );
+          background-size: 400% 400%;
+          animation: gradient 5s ease infinite;
+          @keyframes gradient {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      .intro {
+        margin-top: 16px;
+        font-size: 20px;
+        color: $gray-600;
+        letter-spacing: 5%;
+      }
+    }
+
+    .project_container {
+      margin-top: 16px;
+      //   overflow-y: scroll;
+      //   height: 600px;
+
+      .project_flex {
+        display: flex;
+        margin-bottom: 24px;
+
+        .project_list {
+          display: flex;
+          flex-direction: column;
+          .project_tumbnails {
+            width: 338px;
+          }
+
+          .project_title {
+            margin-top: 12px;
+            font-size: 20px;
+            line-height: 29px;
+            font-weight: 600;
+            color: #1f1f1f;
+          }
+          .project_sub_title {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #a9a9a9;
+          }
+        }
+      }
+      .project_list_01 {
+        @include padding-right;
+      }
+
+      .project_list_02 {
+        @include padding-left;
+      }
+    }
+
+    .footer_container {
+      margin-top: 24px;
+      .menu {
+        margin-top: 16px;
+        ul {
+          list-style: none;
+          display: flex;
+
+          li {
+            margin-right: 8px;
+            a {
+              color: #535353;
+            }
+
+            .twitter {
+              &:hover {
+                color: #23a6d5;
+              }
+            }
+
+            .linkedin {
+              &:hover {
+                color: #0077b5;
+              }
+            }
+
+            .behance {
+              &:hover {
+                color: #053eff;
+              }
+            }
+
+            .gitlab {
+              &:hover {
+                color: #fca326;
+              }
+            }
+
+            .instagram {
+              &:hover {
+                color: #8a3ab9;
+              }
+            }
+
+            .dribbble {
+              &:hover {
+                color: #ea4c89;
+              }
+            }
+          }
+        }
+      }
+      .copyright {
+        font-size: 14px;
+        color: #757575;
+        margin: 16px 0 24px 0;
+      }
+    }
+  }
+}
+
+.photo {
+  width: 338px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+
+  &:hover .img {
+    filter: drop-shadow(0px 8px 8px #000000);
+    border-radius: 8px;
+    transform: scale(1.125);
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    // background-image: linear-gradient(
+    //   to top,
+    //   rgba(0, 0, 0, 0.75) 10%,
+    //   transparent
+    // );
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.img {
+  max-width: 100%;
+  transform: scale(1.1);
+  transition: all 1s ease-out;
+}
